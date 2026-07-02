@@ -48,6 +48,7 @@
         .btn-save { padding: 14px 28px; background-color: #2563eb; color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; transition: background 0.2s; display: block; margin-left: auto; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2); }
         .btn-save:hover { background-color: #1d4ed8; }
     </style>
+    <link rel="stylesheet" href="/responsive.css">
 </head>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
@@ -84,7 +85,7 @@
         </div>
 
         <div class="profile-card">
-            <form action="/api/users/update-profile" method="POST">
+        <form action="/api/users/update-profile" method="POST">
                 <input type="hidden" id="userIdField" name="userId">
 
                 <div class="profile-layout">
@@ -183,7 +184,7 @@
 
             document.getElementById('userIdField').value = currentUserId;
 
-            fetch(`/api/users/${currentUserId}`)
+          fetch(`/api/users/${currentUserId}`)
                 .then(response => response.json())
                 .then(user => {
                     document.getElementById('fullname').value = user.fullname || '';

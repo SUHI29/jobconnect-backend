@@ -26,6 +26,7 @@
         .match-percent { font-size: 20px; font-weight: 800; color: #16a34a; text-align: right; margin-right: 15px; }
         .btn-apply { padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; }
     </style>
+    <link rel="stylesheet" href="/responsive.css">
 </head>
 <script>
    
@@ -67,7 +68,7 @@
         let currentUserId = new URLSearchParams(window.location.search).get('userId');
         
             function loadRecommendedJobs() {
-            let url = `/api/users/${currentUserId}/recommendations`;
+         let url = `/api/users/${currentUserId}/recommendations`;
             fetch(url).then(res => res.json()).then(jobs => {
                 let feed = document.getElementById('dynamicJobsArea');
                 feed.innerHTML = jobs.length === 0 ? '<p>No matching jobs found based on your profile skills.</p>' : '';

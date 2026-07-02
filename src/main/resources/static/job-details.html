@@ -37,6 +37,7 @@
         .btn-submit-app:hover { background: #1d4ed8; }
         .btn-submit-app:active { transform: scale(0.98); }
     </style>
+    <link rel="stylesheet" href="/responsive.css">
 </head>
 <body>
 
@@ -60,7 +61,9 @@
                 📌 <strong>Note:</strong> By clicking apply, your registered profile skills, qualification, and this uploaded resume file will be instantly pushed to the HR portal for review.
             </div>
             
-            <form action="/api/users/apply" method="POST" enctype="multipart/form-data">
+           <form action="/api/users/apply"
+      method="POST"
+      enctype="multipart/form-data">
                 <input type="hidden" name="userId" id="formUserId">
                 <input type="hidden" name="jobTitle" id="formJobTitle">
                 <input type="hidden" name="company" id="formCompany">
@@ -103,7 +106,7 @@
 
             
             if (userId && encodedTitle) {
-                fetch(`/api/users/${userId}/recommendations`)
+               fetch(`/api/users/${userId}/recommendations`)
                     .then(res => res.json())
                     .then(jobs => {
                        
