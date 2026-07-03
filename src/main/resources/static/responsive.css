@@ -1,0 +1,210 @@
+
+body {
+    transition: all 0.3s ease;
+}
+
+/* Base Wrapper for Tables to prevent structural breaking */
+.table-responsive-wrapper, .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    body {
+        padding: 20px;
+    }
+    
+   
+    .sidebar {
+        width: 80px !important;
+        padding: 24px 8px !important;
+        text-align: center;
+    }
+    
+   
+    .sidebar-brand {
+        font-size: 0px !important; 
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    
+    .sidebar-brand span {
+        font-size: 22px !important; 
+    }
+    
+    
+    .nav-item a {
+        justify-content: center !important;
+        padding: 12px !important;
+        font-size: 18px !important;
+    }
+    
+    
+    .main-content {
+        margin-left: 80px !important;
+        padding: 24px !important;
+        max-width: calc(100% - 80px);
+    }
+
+    
+    .stats-grid, .jobs-matrix, .metrics-container, .dashboard-cards {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+        gap: 16px !important;
+    }
+}
+
+
+  
+@media screen and (max-width: 768px) {
+
+    .auth-container {
+        flex-direction: column !important;
+        min-height: auto !important;
+        max-width: 100% !important;
+        border-radius: 16px;
+    }
+    
+    .auth-sidebar {
+        border-right: none !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        padding: 40px 20px !important;
+        text-align: center;
+    }
+    
+    .auth-sidebar h1 br {
+        display: none !important; 
+    }
+    
+    .auth-form-section {
+        padding: 40px 24px !important;
+    }
+
+   
+    .fields-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    
+    .full-width {
+        grid-column: span 1 !important; 
+    }
+    
+    .profile-layout {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 20px !important;
+        text-align: center;
+    }
+
+   
+    .job-header-card, .details-card, .action-bar {
+        padding: 20px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .job-header-card h1 {
+        font-size: 22px !important;
+    }
+    
+   
+    .details-item strong {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 4px;
+    }
+    
+    .btn-submit-app {
+        max-width: 100% !important; 
+    }
+
+    
+    table {
+        min-width: 650px !important; 
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    body {
+        flex-direction: column !important;
+        padding: 8px !important;
+    }
+
+    
+    .sidebar {
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 16px !important;
+        border-right: none !important;
+        border-bottom: 1px solid #1e293b !important;
+        margin-bottom: 16px !important;
+    }
+    
+    .sidebar-brand {
+        margin-bottom: 12px !important;
+        font-size: 20px !important;
+    }
+
+    .nav-list {
+        flex-direction: row !important; 
+        justify-content: space-around !important;
+        gap: 4px !important;
+    }
+    
+    .nav-item a {
+        font-size: 13px !important;
+        padding: 8px 10px !important;
+    }
+    
+    .logout-container {
+        margin-top: 12px !important;
+        border-top: none !important;
+        padding-top: 0 !important;
+    }
+    
+    .btn-logout {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        width: auto !important;
+        margin: 0 auto !important;
+    }
+
+    
+    .main-content {
+        margin-left: 0 !important; 
+        padding: 12px 4px !important;
+        max-width: 100% !important;
+    }
+
+   
+    .hero-section {
+        padding: 40px 16px !important;
+        text-align: center !important;
+    }
+
+    .hero-title, .hero-section h1 {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+    }
+
+    .cta-button-group, .button-container {
+        flex-direction: column !important; 
+        width: 100% !important;
+        gap: 12px !important;
+    }
+
+    .cta-button, .btn {
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    
+    .success-card {
+        padding: 24px 16px !important;
+    }
+}

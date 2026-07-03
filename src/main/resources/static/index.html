@@ -5,73 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Connect - Welcome & Explore</title>
     <style>
+        /* Base Reset & Variables */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
         body { background-color: #f8fafc; color: #0f172a; display: flex; flex-direction: column; min-height: 100vh; }
         
-        
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 80px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; }
+        /* Navbar Fluid Styling */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; }
         .brand-logo { font-size: 24px; font-weight: 800; color: #060e25; text-decoration: none; letter-spacing: -0.5px; }
         .brand-logo span { color: #2563eb; }
-        
         .nav-btns { display: flex; gap: 15px; }
         .btn-nav-login { text-decoration: none; padding: 10px 24px; font-size: 14px; font-weight: 600; color: #2563eb; border: 1px solid #2563eb; border-radius: 8px; transition: all 0.2s; }
         .btn-nav-login:hover { background-color: #eff6ff; }
 
-        
-        .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 80px 80px; background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%); min-height: calc(100vh - 80px); gap: 40px; }
+        /* Hero Fluid Section */
+        .hero-section { display: flex; align-items: center; justify-content: space-between; padding: 60px 5%; background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%); min-height: calc(100vh - 80px); gap: 40px; }
         .hero-content { flex: 1; max-width: 600px; }
-        .hero-content h1 { font-size: 52px; font-weight: 800; line-height: 1.2; color: #1e293b; margin-bottom: 25px; }
+        .hero-content h1 { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.2; color: #1e293b; margin-bottom: 25px; }
         .hero-content h1 span { color: #2563eb; }
-        .hero-content p { font-size: 18px; color: #64748b; line-height: 1.6; margin-bottom: 35px; }
-        
-       
+        .hero-content p { font-size: clamp(15px, 1.5vw, 18px); color: #64748b; line-height: 1.6; margin-bottom: 35px; }
         .btn-cta-primary { text-decoration: none; padding: 15px 35px; font-size: 16px; font-weight: 700; color: #ffffff; background-color: #2563eb; border-radius: 8px; transition: background 0.2s; box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3); display: inline-block; }
         .btn-cta-primary:hover { background-color: #1d4ed8; }
         
-       
         .hero-graphic { flex: 1; display: flex; justify-content: center; align-items: center; }
         .hero-image { width: 100%; max-width: 520px; height: auto; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08); border: 4px solid #ffffff; }
 
-       
-        .about-section { padding: 100px 80px; background-color: #ffffff; text-align: center; }
-        .section-title { font-size: 32px; font-weight: 800; color: #1e293b; margin-bottom: 15px; }
-        .section-subtitle { font-size: 16px; color: #64748b; max-width: 600px; margin: 0 auto 60px auto; line-height: 1.6; }
+        /* About & Dynamic Grid Section */
+        .about-section { padding: 80px 5%; background-color: #ffffff; text-align: center; }
+        .section-title { font-size: clamp(26px, 3vw, 32px); font-weight: 800; color: #1e293b; margin-bottom: 15px; }
+        .section-subtitle { font-size: 16px; color: #64748b; max-width: 600px; margin: 0 auto 50px auto; line-height: 1.6; }
         
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto; }
+        /* Auto-fit CSS Grid - Smashes breakdown limits cleanly */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
         .feature-card { background: #f8fafc; padding: 40px 30px; border-radius: 16px; border: 1px solid #e2e8f0; text-align: left; transition: transform 0.2s; }
         .feature-card:hover { transform: translateY(-5px); }
         .feature-icon { font-size: 32px; margin-bottom: 20px; display: inline-block; }
         .feature-card h3 { font-size: 18px; color: #0f172a; margin-bottom: 12px; font-weight: 700; }
         .feature-card p { font-size: 14px; color: #64748b; line-height: 1.6; }
 
-       
-        .footer { background-color: #0b1a30; color: #94a3b8; padding: 60px 80px 30px 80px; border-top: 1px solid #1e293b; margin-top: auto; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; max-width: 1100px; margin: 0 auto 40px auto; }
+        /* Footer Fluid Components */
+        .footer { background-color: #0b1a30; color: #94a3b8; padding: 60px 5% 30px 5%; border-top: 1px solid #1e293b; margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto 40px auto; }
+        
+        /* Keeps logo column slightly wider on desktops */
+        @media screen and (min-width: 850px) { .footer-grid { grid-template-columns: 1.5fr repeat(3, 1fr); } }
+        
         .footer-brand h3 { color: #ffffff; font-size: 22px; font-weight: bold; margin-bottom: 15px; }
         .footer-brand p { font-size: 14px; line-height: 1.6; }
-        
         .footer-column h4 { color: #ffffff; font-size: 15px; font-weight: 600; margin-bottom: 20px; }
         .footer-column ul { list-style: none; display: flex; flex-direction: column; gap: 12px; padding: 0; }
         .footer-column ul a { color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s; }
         .footer-column ul a:hover { color: #ffffff; }
-        
         .footer-contact-info { display: flex; flex-direction: column; gap: 12px; font-size: 14px; color: #94a3b8; list-style: none; padding: 0; }
         .footer-contact-info li { display: flex; align-items: center; gap: 10px; }
         .footer-bottom { border-top: 1px solid #1e293b; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; font-size: 13px; }
+
+        /* ==========================================================================
+           Breakpoints for Structural Rearrangement
+           ========================================================================== */
+        @media screen and (max-width: 850px) {
+            .navbar { padding: 15px 20px; }
+            .hero-section { flex-direction: column; text-align: center; padding: 40px 20px; gap: 30px; }
+            .hero-graphic { width: 100%; }
+            .hero-image { max-width: 400px; }
+            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+        }
     </style>
     <link rel="stylesheet" href="/responsive.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <a href="./index.html" class="brand-logo">Job <span> Connect</span></a>
+        <a href="./index.html" class="brand-logo">Job <span>Connect</span></a>
         <div class="nav-btns">
             <a href="./login.html" class="btn-nav-login">Login</a>
         </div>
     </nav>
     
     <section class="hero-section">
-        
         <div class="hero-content">
             <h1>Get Automated<br>Job <span>Recommendations</span></h1>
             <p>Experience the power of precise matchmaking. Our intelligent engine maps your core skills, expertise matrix, and career certifications to instantly stream highly relevant, high-paying job opportunities straight to your dashboard.</p>
@@ -81,7 +91,6 @@
         <div class="hero-graphic">
             <img class="hero-image" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Professional Recruitment Dashboard">
         </div>
-
     </section>
 
     <section class="about-section" id="about">
